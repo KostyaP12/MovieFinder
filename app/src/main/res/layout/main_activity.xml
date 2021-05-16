@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.MainActivity">
-    <include layout="@layout/toolbar"/>
+
+    <include layout="@layout/toolbar" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
