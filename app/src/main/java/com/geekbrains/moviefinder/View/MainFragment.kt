@@ -41,16 +41,20 @@ class MainFragment : Fragment() {
                 binding.loadingPopular.visibility = View.GONE
                 binding.loadingLookingNow.visibility = View.GONE
                 binding.loadingUpComing.visibility = View.GONE
-                setData(weatherData)
+
             }
             is AppState.Loading -> {
-                binding.loadingLayout.visibility = View.VISIBLE
+                binding.loadingPopular.visibility = View.VISIBLE
+                binding.loadingLookingNow.visibility = View.VISIBLE
+                binding.loadingUpComing.visibility = View.VISIBLE
             }
             is AppState.Error -> {
-                binding.loadingLayout.visibility = View.GONE
+                binding.loadingPopular.visibility = View.GONE
+                binding.loadingLookingNow.visibility = View.GONE
+                binding.loadingUpComing.visibility = View.GONE
                 Snackbar
-                    .make(binding.mainView, getString(R.string.error), Snackbar.LENGTH_INDEFINITE)
-                    .setAction(getString(R.string.reload)) { viewModel.getWeatherFromLocalSource() }
+                    .make(binding.mainFragmentView, getString(R.string.error), Snackbar.LENGTH_INDEFINITE)
+                    .setAction(getString(R.string.reload)) { viewModel.getMovieFromLocalSource() }
                     .show()
             }
         }
